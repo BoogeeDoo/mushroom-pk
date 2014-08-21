@@ -1,0 +1,3 @@
+var socket = global.socket;
+
+
