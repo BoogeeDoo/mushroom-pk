@@ -1,4 +1,5 @@
 var util = require("util");
+var EventEmitter = require("events").EventEmitter;
 var Canvas = require("term-canvas");
 var CanvasCtx = require("term-canvas/lib/context2d");
 CanvasCtx.prototype.clearCanvas = function() {
@@ -13,13 +14,19 @@ CanvasCtx.prototype.clearCanvas = function() {
  * @Param {Boolean} autoDel
  */
 var BaseScene = function(id, autoDel) {
+    EventEmitter.call(this);
+
     this.id = id;
     this.autoDel = autoDel;
 
     // term canvas
     var _size = process.stdout.getWindowSize();
     this.renewCanvas(_size[0], _size[1]);
+
+    this.socket = global.socket;
 };
+
+util.inherits(BaseScene, EventEmitter);
 
 /**
  * init

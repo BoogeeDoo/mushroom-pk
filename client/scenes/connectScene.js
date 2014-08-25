@@ -10,11 +10,27 @@ var nameGenerator = require("chinese-random-name");
  */
 var ConnectScene = function(id, autoDel) {
     BaseScene.call(this, id, autoDel);
-
     this.percent = 0;
+
+    this.on("connected", this.onConnected.bind(this));
 };
 
 util.inherits(ConnectScene, BaseScene);
+
+/**
+ * on client connected
+ */
+ConnectScene.prototype.onConnected = function() {
+    var self = this;
+    global.sceneManager.createScene("start", "start");
+    global.sceneManager.getSceneById("start").init(function(err) {
+        setTimeout(function() { self.percent = 100; }, 100);
+
+        setTimeout(function() {
+            global.sceneManager.setCurrentScene("start");
+        }, 500);
+    });
+};
 
 /**
  * update the fake progress bar
@@ -51,10 +67,10 @@ ConnectScene.prototype.render = function(delta, callback) {
 
     var processBar = {
         width   : width - 8,
-        height  : 2,
+        height  : 1,
 
         left    : 4,
-        top     : (height - 2) / 2
+        top     : (height - 1) / 2
     };
 
     var self = this;
@@ -65,14 +81,14 @@ ConnectScene.prototype.render = function(delta, callback) {
     this.renderer.strokeRect(
         processBar.left,
         processBar.top,
-        processBar.width * percent, 1);
+        processBar.width * percent, 0);
 
     percent = "Connecting to server: " + (percent * 100).format(2) + "%...";
     var length = percent.length;
 
     this.renderer.resetState();
     this.renderer.fillStyle = "red";
-    this.renderer.fillText(percent, (width - length) / 2, 3 + (height - 1) / 2);
+    this.renderer.fillText(percent, (width - length) / 2, 1 + (height - 1) / 2);
 
     callback();
 };

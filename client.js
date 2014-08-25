@@ -1,4 +1,5 @@
 require("sugar");
+require("./lib/common");
 var config = require("./config");
 var botter = require("socket.io-client")("http://" + config.server.bind_ip + ":" + config.server.port);
 
@@ -11,6 +12,7 @@ sceneManager.setCurrentScene("connect");
 sceneManager.start();
 
 botter.on("connect", function() {
-    require("socketEvent");
+    sceneManager.sendEvent("connected");
+    require("./client/socketEvent");
 });
 

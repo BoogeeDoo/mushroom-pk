@@ -14,6 +14,16 @@ exports.getCurrentScene = function() {
 };
 
 /**
+ * get scene by id
+ *
+ * @param {String} id
+ * @return {Scene}
+ */
+exports.getSceneById = function(id) {
+    return scenes[id];
+};
+
+/**
  * set current scene
  *
  * @param {String} id
@@ -64,7 +74,27 @@ exports.previousTime = 0;
 exports._fps = 60;
 exports.fps = 0;
 var _next = function() {
-    process.nextTick(exports._frameFunc.bind(exports));
+    setImmediate(exports._frameFunc.bind(exports));
+};
+
+/**
+ * send event
+ */
+exports.sendEvent = function() {
+    if(currentScene) {
+        currentScene.emit.apply(currentScene, arguments);
+    }
+};
+
+exports.sendEventToCertainScene = function(sceneName) {
+    var name = sceneName;
+    var newArgu = Array.prototype.slice.call(arguments);
+    newArgu.shift();
+
+    var scene = scenes[name];
+    if(scene) {
+        scene.emit.apply(scene, newArgu);
+    }
 };
 
 /**
