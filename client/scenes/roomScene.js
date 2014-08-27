@@ -152,7 +152,7 @@ RoomScene.prototype.onPlayersUpdateStat = function(param) {
         }
 
         for (var i = 0; i < text.length; i++) {
-            this.records.push({time: moment(), text: text[i] /*text[i].replace("【" + global.name + "】", "【我】")*/});
+            this.records.push({time: moment(), text: text[i].replace("【" + global.name + "】", "【我】") });
         }
     } catch(e) {
         while(1) console.log(e)
