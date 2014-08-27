@@ -24,6 +24,7 @@ module.exports = function(socket) {
 
         // 房间
         var room = player.room;
+        if(room.gameEnd) return;
 
         // 开始打人
         console.log("on.game.attack -");
@@ -44,10 +45,13 @@ module.exports = function(socket) {
             }
         }
         if(allDie[0] && allDie[1]) {
+            room.gameEnd = true;
             room.send("game.end", { victory: -1 });
         } else if(allDie[0]) {
+            room.gameEnd = true;
             room.send("game.end", { victory: 1 });
         } else if(allDie[1]) {
+            room.gameEnd = true;
             room.send("game.end", { victory: 0 });
         }
     });

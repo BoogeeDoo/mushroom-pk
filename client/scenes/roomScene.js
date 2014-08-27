@@ -117,6 +117,7 @@ RoomScene.prototype.onGameEnd = function(victoryTeam) {
 };
 
 RoomScene.prototype.onSkillReleased = function(skillIdx, skillName, source, group, enemy) {
+    if(this.gameEnd) return;
     try {
         // 记录状态
         var name = source;
@@ -138,6 +139,7 @@ RoomScene.prototype.onSkillReleased = function(skillIdx, skillName, source, grou
 };
 
 RoomScene.prototype.onPlayersUpdateStat = function(param) {
+    if(this.gameEnd) return;
     try {
         var stats = param.players;
         var text = param.text;
@@ -213,6 +215,10 @@ RoomScene.prototype.update = function(delta, callback) {
     }
 
     if(this.gameEnd) return callback();
+
+    // 有 10% 的几率进行攻击
+    var attack = Number.random(10000);
+    if(attack > 100) return callback();
 
     for(var i = 0; i < 5; i++) {
         if(skills[i].skill.leftCD === 0 && !skills[i].skill.releasing) {

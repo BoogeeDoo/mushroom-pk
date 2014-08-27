@@ -19,6 +19,8 @@ var Room = function(players) {
             this.teams[i][j].teamNumber = i;
         }
     }
+
+    this.gameEnd = false;
 };
 
 Room.prototype.playerAttack = function(source, skillIdx, target) {
