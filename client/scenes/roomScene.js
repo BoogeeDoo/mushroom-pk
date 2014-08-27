@@ -229,7 +229,7 @@ RoomScene.prototype.update = function(delta, callback) {
                 break;
             }
 
-            var enemyName = this.enemies[enemy].name;
+            var enemyName = enemies[enemy].name;
 
             // 发送技能
             skills[i].skill.releasing = true;
