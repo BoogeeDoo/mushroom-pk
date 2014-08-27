@@ -34,10 +34,13 @@ Player.prototype.attackedBy = function(source, skill) {
     if(!this.property.alive) return "【" + source.name + "】对【" + this.name + "】施展了 [" + skill.name + "]，但是对方早就死了。";
 
     // 躲避
-    var escapeNum = Number.random(1, 100);
-    var escapeRate = this.escapeRate;
+    var escapeNum = Number.random(1, 10000);
+    var escapeRate = this.property.escapeRate * 100;
     if(skill.isGroupAttack) escapeRate *= 1.5;
-    if(escapeNum < escapeRate) return "【" + this.name + "】躲避了【" + source.name + "】的技能：" + skill.name + "。";
+    console.log("|||||||||||||| 闪避率：" + escapeRate + "，值：" + escapeNum + " ||||||||||||||");
+    if(escapeNum < escapeRate) {
+        return "【" + this.name + "】躲避了【" + source.name + "】的技能：" + skill.name + "。";
+    }
 
     // 打中
     this.property.currentHp -= Math.min(this.property.currentHp, skill.attack);
