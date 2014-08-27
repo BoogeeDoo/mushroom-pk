@@ -22,8 +22,10 @@ io.on("connection", function(socket) {
 
     // on start scene
     require("./server/startEvent")(socket);
+
+    // on room scene
+    require("./server/roomEvent")(socket);
 });
 
 io.listen(config.server.port);
 console.log("Server listening on port " + config.server.port + "...");
-

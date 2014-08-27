@@ -48,5 +48,16 @@ module.exports = function(socket) {
             scarlet.push(pool, makeRoom);
         });
     });
-};
 
+    socket.on("game.room.ready", function(name) {
+        console.log(name + " 准备完毕...");
+
+        var player = pool.getPlayerByName(name);
+        player.ready = true;
+
+        var room = player.room;
+        if(room.allReady()) {
+            room.newGame();
+        }
+    });
+};

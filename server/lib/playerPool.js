@@ -10,6 +10,9 @@ exports.addPlayer = function(name, socket, callback) {
     player.setStatus("queuing");
 
     _pool[name] = player;
+    console.log("===========");
+    console.log(_pool)
+    console.log("===========");
 
     socket.extra = {
         name    : name
@@ -23,8 +26,8 @@ exports.getPlayerByName = function(name) {
 };
 
 exports.removePlayer = function(name) {
+    console.log("~~~~~~~~~~~~~~~~");
     delete _pool[name];
 };
 
 exports.getAllPlayers = function() { return _pool; };
-

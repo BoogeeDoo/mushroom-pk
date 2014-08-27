@@ -15,4 +15,3 @@ botter.on("connect", function() {
     sceneManager.sendEvent("connected");
     require("./client/socketEvent");
 });
-

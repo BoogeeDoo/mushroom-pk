@@ -4,8 +4,7 @@
         "port"      : 3721
     },
     "rule"          : {
-        "playersPerRoom"    : 2,
-        "playersPerTeam"    : 1
+        "playersPerRoom"    : 10,
+        "playersPerTeam"    : 5
     }
 }
-
