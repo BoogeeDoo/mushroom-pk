@@ -10,7 +10,10 @@
     "socket.io-client": "~1.0.6",
     "term-canvas": "~0.0.5",
     "socket.io": "~1.0.6",
-    "sugar": "~1.4.1"
+    "sugar": "~1.4.1",
+    "nomnom": "~1.8.0",
+    "sprintf": "~0.1.4",
+    "scarlet-task": "~0.0.1"
   },
   "devDependencies": {},
   "scripts": {
