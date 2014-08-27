@@ -129,10 +129,15 @@ RoomScene.prototype.onSkillReleased = function(skillIdx, skillName, source, grou
             skill.releasing = false;
         }
 
-        if (group) this.records.push({time: moment(), text: "【" + name + "】释放了群攻技能 [" + skillName + "]。"});
-        else {
-            this.records.push({time: moment(), text: "【" + name + "】对【" + enemy + "】释放了技能 [" + skillName + "]。"});
+        var text = "";
+        if(group) {
+            text = "【" + name + "】释放了群攻技能 [" + skillName + "]。";
+        } else {
+            text = "【" + name + "】对【" + enemy + "】释放了技能 [" + skillName + "]。";
         }
+        text = text.replace("【" + global.name + "】", "【我】");
+
+        this.records.push({time: moment(), text: text });
     } catch(e) {
         while(1) console.log(e)
     }
