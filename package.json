@@ -1,7 +1,7 @@
 {
   "name": "mushroom-pk",
   "version": "0.0.1",
-  "description": "",
+  "description": "## Start Up",
   "main": "client.js",
   "dependencies": {
     "chinese-random-name": "~0.0.3-rdm",
@@ -20,7 +20,21 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": "",
-  "author": "",
-  "license": "GPLv2"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:XadillaX/mushroom-pk.git"
+  },
+  "author": "XadillaX",
+  "license": "GPLv2",
+  "gitHead": "97f2a9764854986fa126e5eeacb85c43f7b5fdd2",
+  "readmeFilename": "README.md",
+  "keywords": [
+    "pk",
+    "demo",
+    "client",
+    "server"
+  ],
+  "bugs": {
+    "url": "https://github.com/XadillaX/mushroom-pk/issues"
+  }
 }
