@@ -4,8 +4,8 @@
   "description": "",
   "main": "client.js",
   "dependencies": {
-    "chinese-random-name": "~0.0.2-fix",
-    "chinese-random-skill": "~0.0.2",
+    "chinese-random-name": "~0.0.3-rdm",
+    "chinese-random-skill": "~0.0.3-rdm",
     "moment": "~2.8.1",
     "socket.io-client": "~1.0.6",
     "term-canvas": "~0.0.5",
