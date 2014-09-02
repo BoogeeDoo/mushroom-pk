@@ -74,7 +74,7 @@ exports.previousTime = 0;
 exports._fps = 60;
 exports.fps = 0;
 var _next = function() {
-    setImmediate(exports._frameFunc.bind(exports));
+    process.nextTick(exports._frameFunc.bind(exports));
 };
 
 /**
