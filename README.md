@@ -1,5 +1,35 @@
 # Mushroom PK Demo
 
+## Start Up
+
+首先安装依赖：
+
+```sh
+$ npm install
+```
+
+然后启动服务器：
+
+```sh
+$ node server
+```
+
+接下去启动“模拟九台”客户端——
+
+```sh
+$ node clientCluster
+```
+
+启动之后，会一次性开启九个 Bot 然后每个自动连接服务器自动走完流程。
+
+最后启动一个自己看的客户端：
+
+```sh
+$ node client
+```
+
+然后就可以慢慢欣赏完蛋疼的 PK 过程了。文件型结果在 `log` 文件夹下面，一个 Bot 一个 log。
+
 ## Example
 
 ```
@@ -209,3 +239,15 @@
 [19:00:34.256] 【我】被【丁暗堤】的眠是攻所伤，生命值变成了 0。 [死亡]
 [19:00:34.258] ---===【Defeat】===---
 ```
+
+## Analyze
+
+首先是起名相关的两个包的文章：
+
++ http://xcoder.in/2014/09/01/how-i-made-chinese-random-x/
++ http://html-js.com/article/Nodejs-rolled-me-is-how-to-realize-the-Chinese-of-simple-random-name-generator-Node-version
++ http://blog.segmentfault.com/xadillax/1190000000655872
++ http://v2ex.com/t/131183
+
+然后关于这个 Repo 稍后也会放出解析的。
+
