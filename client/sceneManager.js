@@ -114,7 +114,7 @@ exports._frameFunc = function() {
         var _windowSize = process.stdout.getWindowSize();
         if(_windowSize[0] !== currentScene.canvas.width || _windowSize[1] !== currentScene.canvas.height) {
             for(var key in scenes) {
-                scenes[key].renewCanvas(_windowSize[0], _windowSize[1]);
+                if(scenes[key]) scenes[key].renewCanvas(_windowSize[0], _windowSize[1]);
             }
         }
 
